@@ -28,7 +28,7 @@ export const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-12 animate-fade-in">
           <h2 className="text-8xl font-bold bg-gradient-to-b from-blue-300 to-blue-600 tracking-tighter mb-3 text-transparent bg-clip-text xl:mt-20">

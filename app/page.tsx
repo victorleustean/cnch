@@ -57,7 +57,7 @@ export default function Home() {
   ];
 
   return (
-    <>
+  <div className="min-h-screen bg-linear-to-b from-gray-200 to-gray-400">
       <CardNav
         logo={logo}
         logoAlt='Colegiul Național "Calistrat Hogaș" Piatra-Neamț'
@@ -88,7 +88,7 @@ export default function Home() {
           </Card>
         </CardSwap>
       </div>
-      <h1 className="text-xl md:text-2xl xl:text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-10 xl:-mt-96 xl:ml-5">
+      <h1 className="text-xl md:text-2xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-10 xl:-mt-96 xl:ml-5">
         Educație cu impact.<br/>
         Viitor cu sens.
       </h1>
@@ -110,14 +110,14 @@ export default function Home() {
       {/* Blog Section */}
         <section className="w-11/12 md:w-2/3 mt-30 mb-20 ml-8 md:ml-16 xl:ml-5">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text">Avizier</h2>
+            <h2 className="text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text">Avizier</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Link 
                 key={article.id} 
                 href={`/blog/${article.id}`}
-                className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow"
               >
                 <span className="text-sm text-gray-500 uppercase">{article.category}</span>
                 <h3 className="text-xl font-semibold mt-2 mb-2">{article.title}</h3>
@@ -134,11 +134,11 @@ export default function Home() {
           </div>
         </section>
       <FeaturesCardSection />
-      <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text">CNCH în imagini</h2>
+            <h2 className="text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text xl:ml-5">CNCH în imagini</h2>
       <div style={{ height: '600px', position: 'relative' }}>
          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
         </div>
       <AdmisionSection/>
-    </>
+    </div>
   );
 }
