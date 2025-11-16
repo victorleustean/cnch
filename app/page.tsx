@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/public/logo-cnch.jpeg";
 import CardNav from "./components/CardNav";
 import CardSwap, { Card } from "./components/CardSwap";
@@ -7,8 +8,23 @@ import image1 from '@/public/poza-cnch-2.jpg';
 import image2 from '@/public/activitati-cnch-5.jpg';
 import image3 from '@/public/cnch-activitati-2.jpg';
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { FeaturesCardSection } from "@/components/Feature-card";
+import CircularGallery from '@/components/CircularGallery';
+import AdmisionSection from "@/components/AdmisionSection"
+
+
 
 export default function Home() {
+  const [articles, setArticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Fetch articles from an API route
+    fetch('/api/articles')
+      .then(res => res.json())
+      .then(data => setArticles(data.slice(0, 3))); // Get only first 3 articles
+  }, []);
+
   const items = [
     {
       label: "Oameni și Activități",
@@ -39,6 +55,7 @@ export default function Home() {
       ]
     }
   ];
+
   return (
     <>
       <CardNav
@@ -51,44 +68,77 @@ export default function Home() {
         buttonTextColor="#fff"
         ease="power3.out"
       />
-  <div style={{ height: '600px', position: 'relative' }} className="overflow-x-clip">
-    <CardSwap
-      width={600}      
-      height={500}   
-      cardDistance={100}
-      verticalDistance={70}
-      delay={5000}
-      pauseOnHover={false}
-    >
-    <Card>
-      <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
-    </Card>
-    <Card>
-      <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
-    </Card>
-    <Card>
-      <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
-    </Card>
-  </CardSwap>
-  </div>
+      <div style={{ height: '600px', position: 'relative' }} className="overflow-x-clip">
+        <CardSwap
+          width={600}      
+          height={500}   
+          cardDistance={100}
+          verticalDistance={70}
+          delay={5000}
+          pauseOnHover={false}
+        >
+          <Card>
+            <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
+          </Card>
+          <Card>
+            <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
+          </Card>
+          <Card>
+            <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
+          </Card>
+        </CardSwap>
+      </div>
       <h1 className="text-xl md:text-2xl xl:text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-10 xl:-mt-96 xl:ml-5">
         Educație cu impact.<br/>
         Viitor cu sens.
       </h1>
       <p className="text-xl xl:text-xl text-[#010D3E] tracking-tight mt-6 ml-8 md:ml-16 xl:ml-5 max-w-3xl">
-  Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
-  se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
-  dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
-  Aici, fiecare zi deschide uși către viitor.
-</p>
-<div className="flex gap-4 xl:ml-5 xl:mt-5">
-  <Button className="bg-black text-white hover:bg-black/90" size="lg">
-    Află mai multe
-  </Button>
-  <Button className="bg-white text-black hover:bg-white/90 border border-black" size="lg">
-    Contactează-ne
-  </Button>
-</div>
+        Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
+        se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
+        dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
+        Aici, fiecare zi deschide uși către viitor.
+      </p>
+      <div className="flex gap-4 xl:ml-5 xl:mt-5">
+        <Button className="bg-black text-white hover:bg-black/90" size="lg">
+          Află mai multe
+        </Button>
+        <Button className="bg-white text-black hover:bg-white/90 border border-black" size="lg">
+          Contactează-ne
+        </Button>
+      </div>
+
+      {/* Blog Section */}
+        <section className="w-11/12 md:w-2/3 mt-30 mb-20 ml-8 md:ml-16 xl:ml-5">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text">Avizier</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {articles.map((article) => (
+              <Link 
+                key={article.id} 
+                href={`/blog/${article.id}`}
+                className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+              >
+                <span className="text-sm text-gray-500 uppercase">{article.category}</span>
+                <h3 className="text-xl font-semibold mt-2 mb-2">{article.title}</h3>
+                <p className="text-gray-600 text-sm">{article.date}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link href="/blog">
+              <Button className="bg-black text-white hover:bg-black/90" size="lg">
+                Vezi tot avizierul
+              </Button>
+            </Link>
+          </div>
+        </section>
+      <FeaturesCardSection />
+      <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text">CNCH în imagini</h2>
+      <div style={{ height: '600px', position: 'relative' }}>
+         <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
+        </div>
+      <AdmisionSection/>
     </>
   );
 }
