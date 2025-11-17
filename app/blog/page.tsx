@@ -84,7 +84,7 @@ export default function Home() {
 
             {/* Text Content */}
             <div className="md:w-[478px] xl:w-[600px] px-4 md:px-0 md:ml-8 xl:ml-16">
-              <h1 className="text-4xl md:text-5xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl xl:text-8xl font-bold tracking-tighter text-red-500  bg-clip-text text-center md:text-left">
                 Educație cu impact.<br />
                 Viitor cu sens.
               </h1>
