@@ -57,7 +57,7 @@ export default function Home() {
   ];
 
   return (
-  <div className="min-h-screen bg-linear-to-b from-gray-200 to-gray-400">
+  <div className="min-h-screen bg-linear-to-b from-gray-200 to-gray-400_100%">
       <CardNav
         logo={logo}
         logoAlt='Colegiul Național "Calistrat Hogaș" Piatra-Neamț'
@@ -139,6 +139,10 @@ export default function Home() {
          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}/>
         </div>
       <AdmisionSection/>
+      
+      <p className="2xl:mt-10 2xl:text-lg text-center text-foreground">&copy; 2025 Colegiul Național "Calistrat Hogaș" Piatra-Neamț, Toate drepturile rezervate.</p>
+      <p className="2xl:mt-10 2xl:text-lg text-center text-foreground">Site realizat de Leuștean Victor si Tărîță Alexia.</p>
+     
     </div>
   );
 }
