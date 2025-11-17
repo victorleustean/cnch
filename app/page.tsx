@@ -66,17 +66,18 @@ export default function Home() {
         ease="power3.out"
       />
       
-      {/* Hero Section - Mobile Optimized */}
-      <div className="relative">
-        {/* CardSwap - Moved above text on mobile, centered */}
-        <div className="block md:hidden pt-20 pb-8 overflow-x-clip">
-          <div className="flex justify-center">
-            <div style={{ height: '400px', width: '100%', maxWidth: '500px', position: 'relative' }}>
+      {/* Hero Section - Completely Restructured for Mobile */}
+      <div className="relative pt-24 md:pt-0">
+        {/* Mobile Layout: CardSwap ABOVE text */}
+        <div className="md:hidden">
+          {/* CardSwap Container - Centered on mobile */}
+          <div className="flex justify-center items-center overflow-x-clip px-4 mb-8">
+            <div style={{ height: '350px', width: '100%', maxWidth: '450px', position: 'relative' }}>
               <CardSwap
-                width={400}      
-                height={350}   
-                cardDistance={80}
-                verticalDistance={50}
+                width={350}      
+                height={300}   
+                cardDistance={70}
+                verticalDistance={40}
                 delay={5000}
                 pauseOnHover={false}
               >
@@ -92,65 +93,89 @@ export default function Home() {
               </CardSwap>
             </div>
           </div>
+
+          {/* Text Content - Below CardSwap on mobile */}
+          <div className="px-6 text-center">
+            <h1 className="text-4xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text mb-6">
+              Educație cu impact.<br/>
+              Viitor cu sens.
+            </h1>
+            <p className="text-base text-[#010D3E] tracking-tight mb-8 leading-relaxed">
+              Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
+              se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
+              dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
+              Aici, fiecare zi deschide uși către viitor.
+            </p>
+          </div>
+
+          {/* Buttons with proper spacing */}
+          <div className="flex flex-col gap-4 px-6 mt-8">
+            <Button className="bg-black text-white hover:bg-black/90 w-full" size="lg">
+              Află mai multe
+            </Button>
+            <Button className="bg-white text-black hover:bg-white/90 border border-black w-full" size="lg">
+              Contactează-ne
+            </Button>
+          </div>
         </div>
 
-        {/* Desktop CardSwap */}
-        <div className="hidden md:block overflow-x-clip" style={{ height: '600px', position: 'relative' }}>
-          <CardSwap
-            width={600}      
-            height={500}   
-            cardDistance={100}
-            verticalDistance={70}
-            delay={5000}
-            pauseOnHover={false}
-          >
-            <Card>
-              <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
-            </Card>
-            <Card>
-              <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
-            </Card>
-            <Card>
-              <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
-            </Card>
-          </CardSwap>
-        </div>
+        {/* Desktop Layout: Original positioning */}
+        <div className="hidden md:block">
+          <div className="overflow-x-clip" style={{ height: '600px', position: 'relative' }}>
+            <CardSwap
+              width={600}      
+              height={500}   
+              cardDistance={100}
+              verticalDistance={70}
+              delay={5000}
+              pauseOnHover={false}
+            >
+              <Card>
+                <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
+              </Card>
+              <Card>
+                <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
+              </Card>
+              <Card>
+                <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
+              </Card>
+            </CardSwap>
+          </div>
 
-        {/* Text Content */}
-        <div className="px-4 md:px-0">
-          <h1 className="text-4xl md:text-2xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left md:-mt-10 xl:-mt-96 md:xl:ml-5">
-            Educație cu impact.<br/>
-            Viitor cu sens.
-          </h1>
-          <p className="text-lg md:text-xl xl:text-xl text-[#010D3E] tracking-tight mt-6 text-center md:text-left md:ml-16 xl:ml-5 max-w-3xl mx-auto md:mx-0">
-            Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
-            se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
-            dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
-            Aici, fiecare zi deschide uși către viitor.
-          </p>
-        </div>
+          <div className="px-4">
+            <h1 className="text-2xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-10 xl:-mt-96 xl:ml-5">
+              Educație cu impact.<br/>
+              Viitor cu sens.
+            </h1>
+            <p className="text-xl xl:text-xl text-[#010D3E] tracking-tight mt-6 ml-16 xl:ml-5 max-w-3xl">
+              Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
+              se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
+              dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
+              Aici, fiecare zi deschide uși către viitor.
+            </p>
+          </div>
 
-        {/* Buttons with margin top */}
-        <div className="flex flex-col md:flex-row gap-4 px-4 md:px-0 md:ml-16 xl:ml-5 mt-8 md:mt-5 items-center md:items-start">
-          <Button className="bg-black text-white hover:bg-black/90 w-full md:w-auto" size="lg">
-            Află mai multe
-          </Button>
-          <Button className="bg-white text-black hover:bg-white/90 border border-black w-full md:w-auto" size="lg">
-            Contactează-ne
-          </Button>
+          <div className="flex gap-4 ml-16 xl:ml-5 mt-5">
+            <Button className="bg-black text-white hover:bg-black/90" size="lg">
+              Află mai multe
+            </Button>
+            <Button className="bg-white text-black hover:bg-white/90 border border-black" size="lg">
+              Contactează-ne
+            </Button>
+          </div>
         </div>
       </div>
 
-      {/* Blog Section - Centered on mobile */}
-      <section className="w-11/12 md:w-2/3 mt-20 mb-20 mx-auto md:ml-8 md:mr-auto xl:ml-5">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-5xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left w-full md:w-auto">
+      {/* Blog Section - Properly centered on mobile */}
+      <section className="w-11/12 md:w-2/3 mt-24 md:mt-30 mb-20 mx-auto md:ml-8 md:mr-auto xl:ml-5">
+        <div className="flex justify-center md:justify-start items-center mb-8">
+          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left">
             Avizier
           </h2>
         </div>
         
-        {/* Centered cards on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center md:place-items-stretch">
+        {/* Cards container - centered on mobile */}
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 items-center md:items-stretch">
           {articles.map((article) => (
             <Link 
               key={article.id} 
@@ -164,10 +189,10 @@ export default function Home() {
           ))}
         </div>
         
-        {/* Centered button on mobile */}
+        {/* Button centered on mobile */}
         <div className="mt-8 flex justify-center md:justify-start">
           <Link href="/blog">
-            <Button className="bg-black text-white hover:bg-black/90" size="lg">
+            <Button className="bg-black text-white hover:bg-black/90 w-full md:w-auto" size="lg">
               Vezi tot avizierul
             </Button>
           </Link>
@@ -177,22 +202,22 @@ export default function Home() {
       <FeaturesCardSection />
 
       {/* Gallery Section - Centered title on mobile */}
-      <div className="px-4 md:px-0">
-        <h2 className="text-5xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left md:ml-5 mb-8 md:mb-0">
+      <div className="px-4 mb-8">
+        <h2 className="text-5xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left md:ml-5">
           CNCH în imagini
         </h2>
       </div>
       
       <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={3} textColor="#000000" borderRadius={0.05} scrollEase={0.02}/>
+        <CircularGallery bend={3} textColor="#000000" borderRadius={0.05} scrollEase={0.02} scrollSpeed={2}/>
       </div>
 
       <AdmisionSection/>
       
-      <p className="mt-10 text-sm md:text-lg text-center text-foreground px-4">
+      <p className="mt-10 text-sm md:text-lg text-center text-foreground px-4 pb-4">
         &copy; 2025 Colegiul Național "Calistrat Hogaș" Piatra-Neamț, Toate drepturile rezervate.
       </p>
-      <p className="mt-4 pb-10 text-sm md:text-lg text-center text-foreground px-4">
+      <p className="text-sm md:text-lg text-center text-foreground px-4 pb-10">
         Site realizat de Leuștean Victor si Tărîță Alexia.
       </p>
     </div>
