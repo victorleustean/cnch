@@ -1,8 +1,8 @@
-"use client"
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { gsap } from 'gsap';
-import { GoArrowUpRight } from 'react-icons/go';
+"use client";
+import React, { useLayoutEffect, useRef, useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import { gsap } from "gsap";
+import { GoArrowUpRight } from "react-icons/go";
 
 type CardNavLink = {
   label: string;
@@ -54,8 +54,9 @@ const CardNav: React.FC<CardNavProps> = ({
     if (isMobile) {
       const contentEl = navEl.querySelector('.card-nav-content') as HTMLElement;
       if (contentEl) {
-        const wasVisible = contentEl.style.visibility;
-        const wasPointerEvents = contentEl.style.pointerEvents;
+        // Temporarily make visible to measure
+        const wasVisibility = contentEl.style.visibility;
+        const wasPointer = contentEl.style.pointerEvents;
         const wasPosition = contentEl.style.position;
         const wasHeight = contentEl.style.height;
 
@@ -64,14 +65,16 @@ const CardNav: React.FC<CardNavProps> = ({
         contentEl.style.position = 'static';
         contentEl.style.height = 'auto';
 
+        // force reflow
         contentEl.offsetHeight;
 
         const topBar = 60;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
 
-        contentEl.style.visibility = wasVisible;
-        contentEl.style.pointerEvents = wasPointerEvents;
+        // restore
+        contentEl.style.visibility = wasVisibility;
+        contentEl.style.pointerEvents = wasPointer;
         contentEl.style.position = wasPosition;
         contentEl.style.height = wasHeight;
 
@@ -109,6 +112,7 @@ const CardNav: React.FC<CardNavProps> = ({
       tl?.kill();
       tlRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ease, items]);
 
   useLayoutEffect(() => {
@@ -186,13 +190,14 @@ const CardNav: React.FC<CardNavProps> = ({
             />
           </div>
 
-          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none max-w-[65%] md:max-w-none">
+          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none max-w-[65%] md:max-w-none min-w-0">
             {typeof logo === 'string' ? (
               <img src={logo} alt={logoAlt} className="logo h-6 w-auto" />
             ) : (
               <Image src={logo} alt={logoAlt} className="logo h-6 w-auto" width={80} height={24} />
             )}
-            <span className="ml-2 text-[10px] md:text-base font-semibold text-gray-900 whitespace-nowrap truncate">
+            {/* Make the title smaller on very small screens and truncatable so the hamburger won't cover it */}
+            <span className="ml-2 text-[10px] sm:text-[12px] md:text-base font-semibold text-gray-900 whitespace-nowrap truncate max-w-[12rem] sm:max-w-[20rem] md:max-w-none">
               {logoAlt}
             </span>
           </div>
