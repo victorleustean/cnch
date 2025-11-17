@@ -27,14 +27,16 @@ const cardData = [
 export const FeaturesCardSection = () => {
     return (
         <section className="py-24 overflow-clip">
-            <div className="w-full mx-auto px-4">
-                <div className="relative w-full flex flex-col items-center mb-12">
-                    <h2 className="text-center font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-4xl md:text-5xl lg:text-8xl max-w-5xl leading-tight">
+            <div className="container">
+                {/* Title Section */}
+                <div className="flex flex-col items-center text-center mb-16">
+                    <h2 className="font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-4xl md:text-5xl lg:text-6xl xl:text-8xl max-w-5xl">
                         CNCH, un lider în învățământul nemțean
                     </h2>
                 </div>
                 
-                <div className="flex flex-col items-center justify-center gap-20 md:gap-12 lg:flex-row lg:gap-8 pt-8">
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 place-items-center">
                     {cardData.map(({image, title, description }, index) => {
                         const gradients = [
                             'bg-[linear-gradient(135deg,white_0%,#28cdd8_100%)]',
@@ -42,8 +44,10 @@ export const FeaturesCardSection = () => {
                             'bg-[linear-gradient(135deg,white_0%,#cccccc_100%)]',
                         ];
                         return (
-                            <div key={index} className={`relative z-0 p-8 w-full max-w-sm md:w-96 shrink-0 group ${gradients[index]} rounded-2xl`}>
+                            <div key={index} className={`relative z-0 p-8 w-full max-w-sm shrink-0 group ${gradients[index]} rounded-2xl`}>
                                 <div className={`absolute inset-0 -z-10 rounded-2xl`} />
+                                
+                                {/* Image at top */}
                                 <div className="flex justify-center -mt-28 mb-8">
                                     <div className="inline-flex relative">
                                         <div className="absolute h-4 w-full top-[calc(100%+16px)] bg-zinc-950/70 group-hover:bg-zinc-950/30 transition duration-300 rounded-[100%] [mask-image:radial-gradient(closest-side,black,transparent)]"/>
@@ -57,9 +61,13 @@ export const FeaturesCardSection = () => {
                                         />
                                     </div>
                                 </div>
+                                
+                                {/* Content */}
                                 <h3 className="text-black text-2xl md:text-3xl font-bold mb-4">{title}</h3>
-                                <p className="text-base md:text-lg text-white leading-relaxed">{description}</p>
-                                <div className="flex items-center gap-2 justify-between mt-8">
+                                <p className="text-base md:text-lg text-white leading-relaxed mb-8">{description}</p>
+                                
+                                {/* Button */}
+                                <div className="flex items-center gap-2 justify-between">
                                     <Button className="text-sm font-heading uppercase font-extrabold tracking-wider bg-black hover:bg-black/90 active:bg-black text-white border-black hover:border-black active:border-black" >
                                         Află mai multe
                                     </Button>

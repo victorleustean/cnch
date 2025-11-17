@@ -66,160 +66,145 @@ export default function Home() {
         ease="power3.out"
       />
       
-      {/* Hero Section - Completely Restructured for Mobile */}
-      <div className="relative pt-24 md:pt-0">
-        {/* Mobile Layout: CardSwap ABOVE text */}
-        <div className="md:hidden">
-          {/* CardSwap Container - Centered on mobile */}
-          <div className="flex justify-center items-center overflow-x-clip px-4 mb-8">
-            <div style={{ height: '350px', width: '100%', maxWidth: '450px', position: 'relative' }}>
-              <CardSwap
-                width={350}      
-                height={300}   
-                cardDistance={70}
-                verticalDistance={40}
-                delay={5000}
-                pauseOnHover={false}
-              >
-                <Card>
-                  <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
-                </Card>
-                <Card>
-                  <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
-                </Card>
-                <Card>
-                  <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
-                </Card>
-              </CardSwap>
+      {/* Hero Section - Using container pattern like your landing page */}
+      <section className="pt-20 pb-20 md:pb-10 overflow-x-clip">
+        <div className="container">
+          <div className="md:flex items-center">
+            {/* Mobile: CardSwap above text */}
+            <div className="md:hidden mb-8">
+              <div className="relative w-full h-[350px] flex items-center justify-center">
+                <CardSwap
+                  width={350}      
+                  height={300}   
+                  cardDistance={70}
+                  verticalDistance={40}
+                  delay={5000}
+                  pauseOnHover={false}
+                >
+                  <Card>
+                    <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                  <Card>
+                    <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                  <Card>
+                    <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                </CardSwap>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="md:w-[478px] xl:w-[600px] px-4 md:px-0 md:ml-8 xl:ml-16">
+              <h1 className="text-4xl md:text-5xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left">
+                Educație cu impact.<br/>
+                Viitor cu sens.
+              </h1>
+              <p className="text-base md:text-xl xl:text-xl text-[#010D3E] tracking-tight mt-6 text-center md:text-left">
+                Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
+                se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
+                dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
+                Aici, fiecare zi deschide uși către viitor.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center sm:items-start mt-8 justify-center md:justify-start">
+                <Button className="bg-black text-white hover:bg-black/90 w-full sm:w-auto" size="lg">
+                  Află mai multe
+                </Button>
+                <Button className="bg-white text-black hover:bg-white/90 border border-black w-full sm:w-auto" size="lg">
+                  Contactează-ne
+                </Button>
+              </div>
+            </div>
+
+            {/* Desktop: CardSwap on right */}
+            <div className="hidden md:block mt-20 md:mt-0 md:h-[648px] xl:h-[780px] md:flex-1 relative">
+              <div className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0 xl:left-8">
+                <CardSwap
+                  width={600}      
+                  height={500}   
+                  cardDistance={100}
+                  verticalDistance={70}
+                  delay={5000}
+                  pauseOnHover={false}
+                >
+                  <Card>
+                    <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                  <Card>
+                    <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                  <Card>
+                    <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
+                  </Card>
+                </CardSwap>
+              </div>
             </div>
           </div>
-
-          {/* Text Content - Below CardSwap on mobile */}
-          <div className="px-6 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text mb-6">
-              Educație cu impact.<br/>
-              Viitor cu sens.
-            </h1>
-            <p className="text-base text-[#010D3E] tracking-tight mb-8 leading-relaxed">
-              Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
-              se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
-              dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
-              Aici, fiecare zi deschide uși către viitor.
-            </p>
-          </div>
-
-          {/* Buttons with proper spacing */}
-          <div className="flex flex-col gap-4 px-6 mt-8">
-            <Button className="bg-black text-white hover:bg-black/90 w-full" size="lg">
-              Află mai multe
-            </Button>
-            <Button className="bg-white text-black hover:bg-white/90 border border-black w-full" size="lg">
-              Contactează-ne
-            </Button>
-          </div>
         </div>
+      </section>
 
-        {/* Desktop Layout: Original positioning */}
-        <div className="hidden md:block">
-          <div className="overflow-x-clip" style={{ height: '600px', position: 'relative' }}>
-            <CardSwap
-              width={600}      
-              height={500}   
-              cardDistance={100}
-              verticalDistance={70}
-              delay={5000}
-              pauseOnHover={false}
-            >
-              <Card>
-                <Image src={image1} alt="Card 1" fill style={{ objectFit: 'cover' }} />
-              </Card>
-              <Card>
-                <Image src={image2} alt="Card 2" fill style={{ objectFit: 'cover' }} />
-              </Card>
-              <Card>
-                <Image src={image3} alt="Card 3" fill style={{ objectFit: 'cover' }} />
-              </Card>
-            </CardSwap>
+      {/* Blog Section - Using container */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <div className="flex flex-col items-center">
+            <h2 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center mb-8">
+              Avizier
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+              {articles.map((article) => (
+                <Link 
+                  key={article.id} 
+                  href={`/blog/${article.id}`}
+                  className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                >
+                  <span className="text-sm text-gray-500 uppercase">{article.category}</span>
+                  <h3 className="text-xl font-semibold mt-2 mb-2">{article.title}</h3>
+                  <p className="text-gray-600 text-sm">{article.date}</p>
+                </Link>
+              ))}
+            </div>
+            
+            <div className="mt-8">
+              <Link href="/blog">
+                <Button className="bg-black text-white hover:bg-black/90" size="lg">
+                  Vezi tot avizierul
+                </Button>
+              </Link>
+            </div>
           </div>
-
-          <div className="px-4">
-            <h1 className="text-2xl xl:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-10 xl:-mt-96 xl:ml-5">
-              Educație cu impact.<br/>
-              Viitor cu sens.
-            </h1>
-            <p className="text-xl xl:text-xl text-[#010D3E] tracking-tight mt-6 ml-16 xl:ml-5 max-w-3xl">
-              Colegiul Național „Calistrat Hogaș" din Piatra-Neamț este un spațiu unde tradiția
-              se întâlnește cu inovația. Cu o istorie de peste un secol, rezultate excepționale și
-              dotări moderne, formăm elevi pregătiți să devină liderii unei lumi în schimbare.
-              Aici, fiecare zi deschide uși către viitor.
-            </p>
-          </div>
-
-          <div className="flex gap-4 ml-16 xl:ml-5 mt-5">
-            <Button className="bg-black text-white hover:bg-black/90" size="lg">
-              Află mai multe
-            </Button>
-            <Button className="bg-white text-black hover:bg-white/90 border border-black" size="lg">
-              Contactează-ne
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Blog Section - Properly centered on mobile */}
-      <section className="w-11/12 md:w-2/3 mt-24 md:mt-30 mb-20 mx-auto md:ml-8 md:mr-auto xl:ml-5">
-        <div className="flex justify-center md:justify-start items-center mb-8">
-          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left">
-            Avizier
-          </h2>
-        </div>
-        
-        {/* Cards container - centered on mobile */}
-        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 items-center md:items-stretch">
-          {articles.map((article) => (
-            <Link 
-              key={article.id} 
-              href={`/blog/${article.id}`}
-              className="bg-white border rounded-lg p-6 hover:shadow-lg transition-shadow w-full max-w-sm md:max-w-none"
-            >
-              <span className="text-sm text-gray-500 uppercase">{article.category}</span>
-              <h3 className="text-xl font-semibold mt-2 mb-2">{article.title}</h3>
-              <p className="text-gray-600 text-sm">{article.date}</p>
-            </Link>
-          ))}
-        </div>
-        
-        {/* Button centered on mobile */}
-        <div className="mt-8 flex justify-center md:justify-start">
-          <Link href="/blog">
-            <Button className="bg-black text-white hover:bg-black/90 w-full md:w-auto" size="lg">
-              Vezi tot avizierul
-            </Button>
-          </Link>
         </div>
       </section>
 
       <FeaturesCardSection />
 
-      {/* Gallery Section - Centered title on mobile */}
-      <div className="px-4 mb-8">
-        <h2 className="text-5xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left md:ml-5">
-          CNCH în imagini
-        </h2>
-      </div>
-      
-      <div style={{ height: '600px', position: 'relative' }}>
-        <CircularGallery bend={3} textColor="#000000" borderRadius={0.05} scrollEase={0.02} scrollSpeed={2}/>
-      </div>
+      {/* Gallery Section - Using container */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <h2 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center mb-8">
+            CNCH în imagini
+          </h2>
+        </div>
+        <div style={{ height: '600px', position: 'relative' }}>
+          <CircularGallery bend={3} textColor="#000000" borderRadius={0.05} scrollEase={0.02} scrollSpeed={2}/>
+        </div>
+      </section>
 
       <AdmisionSection/>
       
-      <p className="mt-10 text-sm md:text-lg text-center text-foreground px-4 pb-4">
-        &copy; 2025 Colegiul Național "Calistrat Hogaș" Piatra-Neamț, Toate drepturile rezervate.
-      </p>
-      <p className="text-sm md:text-lg text-center text-foreground px-4 pb-10">
-        Site realizat de Leuștean Victor si Tărîță Alexia.
-      </p>
+      <footer className="py-8 md:py-12">
+        <div className="container">
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-sm md:text-base text-center text-foreground">
+              &copy; 2025 Colegiul Național "Calistrat Hogaș" Piatra-Neamț, Toate drepturile rezervate.
+            </p>
+            <p className="text-sm md:text-base text-center text-foreground">
+              Site realizat de Leuștean Victor si Tărîță Alexia.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
