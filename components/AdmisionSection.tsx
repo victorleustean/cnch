@@ -33,11 +33,13 @@ const Index = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <header className="mb-20 animate-fade-in">
-          <h2 className="text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text xl:ml-5">Medii de Admitere</h2>
-          <p className="text-xl lg:text-2xl text-foreground/80 tracking-tight max-w-3xl xl:ml-5">
+          <h2 className="text-5xl md:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text text-center md:text-left md:ml-5">
+            Medii de Admitere
+          </h2>
+          <p className="text-xl lg:text-2xl text-foreground/80 tracking-tight max-w-3xl text-center md:text-left mx-auto md:mx-0 md:ml-5 mt-4">
             Colegiul Național „Calistrat Hogaș" din Piatra-Neamț
           </p>
-          <p className="text-lg text-muted-foreground mt-2 xl:ml-5">
+          <p className="text-lg text-muted-foreground mt-2 text-center md:text-left md:ml-5">
             Clasa a IX-a • An şcolar 2025-2026
           </p>
         </header>
@@ -87,18 +89,18 @@ const Index = () => {
         </footer>
 
         {/* Contact Section */}
-          <div className="mb-12 animate-fade-in">
--          
-+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text mb-10 xl:ml-5">
+        <div className="mb-12 animate-fade-in mt-16">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter bg-linear-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text mb-10 text-center md:text-left md:ml-5">
             Contact
           </h2>
           
           <Card className="overflow-hidden border-2 border-border">
             <div className="p-8 lg:p-12 bg-white dark:bg-gray-900">
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
-                  <MapPin className="w-6 h-6 text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                  <div>
+                {/* Address Card - Centered Icon */}
+                <div className="flex flex-col items-center md:items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
+                  <MapPin className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                  <div className="text-center md:text-left w-full">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">Adresă</p>
                     <p className="text-foreground font-medium">str. Alexandru cel Bun, nr. 19</p>
                     <p className="text-foreground font-medium">cod poştal 610004, Piatra-Neamţ</p>
@@ -106,9 +108,10 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
-                  <Phone className="w-6 h-6 text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                  <div>
+                {/* Phone Card - Centered Icon */}
+                <div className="flex flex-col items-center md:items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
+                  <Phone className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                  <div className="text-center md:text-left w-full">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">Telefon</p>
                     <a href="tel:0233215853" className="text-foreground font-medium hover:text-primary transition-colors text-lg">
                       0233.215.853
@@ -116,17 +119,19 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
-                  <Printer className="w-6 h-6 text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                  <div>
+                {/* Fax Card - Centered Icon */}
+                <div className="flex flex-col items-center md:items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
+                  <Printer className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                  <div className="text-center md:text-left w-full">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">Fax</p>
                     <p className="text-foreground font-medium text-lg">0233.212.000</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
-                  <Mail className="w-6 h-6 text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                  <div>
+                {/* Email Card - Centered Icon */}
+                <div className="flex flex-col items-center md:items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group">
+                  <Mail className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                  <div className="text-center md:text-left w-full">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">E-mail</p>
                     <a href="mailto:cnch@isjneamt.ro" className="text-foreground font-medium hover:text-primary transition-colors text-lg">
                       cnch@isjneamt.ro
@@ -134,31 +139,27 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group md:col-span-2 lg:col-span-1">
-                  <Facebook className="w-6 h-6 text-blue-500 dark:text-blue-400 mt-1 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                  <div>
+                {/* Facebook Card - Centered Icon */}
+                <div className="flex flex-col items-center md:items-start gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-blue-950 hover:border-blue-200 border-2 border-transparent group md:col-span-2 lg:col-span-1">
+                  <Facebook className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                  <div className="text-center md:text-left w-full">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">Facebook</p>
                     <a 
                       href="https://www.facebook.com/colegiulhogas/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-foreground font-medium hover:text-primary transition-colors text-lg"
+                      className="text-foreground font-medium hover:text-primary transition-colors text-lg break-words"
                     >
                       facebook.com/colegiulhogas
                     </a>
                   </div>
                 </div>
               </div>
-
-             
-           </div>
-         </Card>
-       </div>
-
-        
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
-    
   );
 };
 

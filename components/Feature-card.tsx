@@ -31,8 +31,8 @@ export const FeaturesCardSection = () => {
     const scrollToCard = (index: number) => {
         setCurrentIndex(index);
         if (scrollContainerRef.current) {
-            const cardWidth = 384; // w-96 = 384px
-            const gap = 32; // gap-8 = 32px
+            const cardWidth = 384;
+            const gap = 32;
             const scrollPosition = index * (cardWidth + gap);
             scrollContainerRef.current.scrollTo({
                 left: scrollPosition,
@@ -45,15 +45,15 @@ export const FeaturesCardSection = () => {
         <section className="py-24 md:-mt-28 overflow-clip">
             <div className="w-full mx-auto">
                 <div className="relative w-full flex flex-col items-center">
-                    <h2 className="text-center font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-20 md:mt-5 lg:-mt-7 text-3xl md:text-3xl lg:text-8xl">
-                        CNCH,un lider în învățământul nemțean
+                    <h2 className="text-center font-bold tracking-tighter bg-gradient-to-b from-blue-300 to-blue-600 text-transparent bg-clip-text -mt-20 md:mt-5 lg:-mt-7 text-3xl md:text-3xl lg:text-8xl px-4">
+                        CNCH, un lider în învățământul nemțean
                     </h2>
                 </div>
                 <div className="mt-16 lg:-mt-5 pt-28" ref={scrollContainerRef}>
                     <div className="w-full flex justify-center">
-                        <div className="flex flex-col gap-8 lg:flex-row lg:gap-8 items-center justify-center">
+                        {/* Added more spacing on mobile with gap-16 instead of gap-8 */}
+                        <div className="flex flex-col gap-16 md:gap-12 lg:flex-row lg:gap-8 items-center justify-center px-4">
                             {cardData.map(({image, title, description }, index) => {
-                                // Define gradient colors for each card
                                 const gradients = [
                                     'bg-[linear-gradient(135deg,white_0%,#28cdd8_100%)]',
                                     'bg-[linear-gradient(135deg,white_0%,#f4c842_100%)]',
